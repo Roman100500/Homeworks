@@ -4,18 +4,17 @@ bool Palindrome (int num)
 {   
     bool z = true;
     double x, y;
-    int a = 1;
     int i = 1;
     while (i < 3)
     {
-        x = ((num % (100000 / a)) - (num % (10000 / a))) / (10000 / a);
+        x = ((num % (100000 / Math.Pow(10, i-1))) - (num % (10000 / Math.Pow(10, i-1)))) / (10000 / Math.Pow(10, i-1)); 
         if (i == 1)
         {
-            y = (num % (10 * a));
+            y = (num % (10 * Math.Pow(10, i-1)));
         }
         else
         {
-            y = ((num % (10 * a)) - (num % a)) / a;
+            y = ((num % (10 * Math.Pow(10, i-1))) - (num % Math.Pow(10, i-1))) / Math.Pow(10, i-1);
         }
         if (x != y)
         {
@@ -23,7 +22,6 @@ bool Palindrome (int num)
             break;
         }
         i++;
-        a *= 10;
     }
     return z;
 }
